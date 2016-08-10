@@ -2,6 +2,10 @@ from flask import request, render_template, send_from_directory, abort, redirect
 from nls import app, models, forms
 from mongoengine import DoesNotExist
 
+@app.route('/research')
+def research():
+    return render_template('research.html')
+
 @app.route('/')
 def index():
     return render_template('index.html')
