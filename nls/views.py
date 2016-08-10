@@ -57,3 +57,10 @@ def search():
     results['libraries'] = models.Library.objects.all()
 
     return render_template('search.html', query=query, results=results)
+
+@app.route('/analytics/collect', methods=['GET', 'POST'])
+def analytics_collect():
+    done = False
+    if request.method == 'POST':
+        done = True
+    return render_template('analytics-collect.html', done=done)    

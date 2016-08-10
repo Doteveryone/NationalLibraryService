@@ -5,7 +5,6 @@ TODO:
 * wiki sub-pages on library pages that anyone can edit
 * Show access to online courses
 * Start a reading group (conditional commitment)
-* Put on Github
 * Put on Heroku
 * page per book
 * add libraries from http://www.rotherham.gov.uk/homepage/18/find_your_local_
@@ -23,3 +22,4 @@ DONE:
 * import libraries
 * Page per library
 * add accountability (council) to library page.
+* Put on Github

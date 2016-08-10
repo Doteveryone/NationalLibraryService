@@ -3678,4 +3678,14 @@ footer {
   footer a:hover {
     color: #0b0c0c; }
 
+.analytics-collection {
+  padding-top: 2rem;
+  text-align: center; }
+  .analytics-collection h1 {
+    font-size: 2rem; }
+  .analytics-collection button {
+    height: 5rem;
+    font-weight: bold;
+    width: 100%; }
+
 /*# sourceMappingURL=main.css.map */

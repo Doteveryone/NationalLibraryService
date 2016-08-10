@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>What did you do in the library today?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />
+    <link href="{{url_for('static', filename='vendor/leaflet/leaflet.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{url_for('static', filename='vendor/chatjs/css/jquery.chatjs.css')}}" />
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" />
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/foundation-sites/foundation.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/leaflet/leaflet.js')}}"></script>
+
+    <script src="{{url_for('static', filename='javascript/main.js')}}"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="analytics-collection">
+  {% if done == False %}
+    <div class="row">
+      <div class="columns small-12">
+        <h1>Tell us if you did any of these things today</h1>
+      </div>
+    </div>
+    <form action="" method="post">
+      <div class="row">
+        <div class="columns small-3">
+          <button type="submit" class="button" value="knitting">Knitted</button>
+        </div>
+        <div class="columns small-3">
+          <button type="submit" class="button" value="learnt-email">Learnt how to email</button>
+        </div>
+        <div class="columns small-3">
+          <button type="submit" class="button" value="job-application">Applied for a job</button>
+        </div>
+        <div class="columns small-3">
+          <button type="submit" class="button" value="reading-group">Took part in a reading group</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns small-3">
+          <button type="submit" class="button" value="family-history">Looked up family history</button>
+        </div>
+        <div class="columns small-3">
+          <button type="submit" class="button" value="borrowed-book">Borrowed a book</button>
+        </div>
+        <div class="columns small-3">
+          <button type="submit" class="button" value="3d-printing">Did some 3D printing</button>
+        </div>
+        <div class="columns small-3">
+          <button type="submit" class="button" value="kids-singalong">Took part in a kids sing-a-long</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns small-3">
+          <button type="submit" class="button" value="health">Attended a healthy living session</button>
+        </div>
+        <div class="columns small-3">
+          <button type="submit" class="button" value="local-history">Looked up local history</button>
+        </div>
+        <div class="columns small-3">
+          <button type="submit" class="button" value="surgery">Met your MP or councillor</button>
+        </div>
+        <div class="columns small-3">
+          <button type="submit" class="button" value="dicussion">Took part in discussion group</button>
+        </div>
+      </div>
+    </form>
+  {% else %}
+    <style type="text/css">
+      .check {
+      stroke-dasharray: 130px 130px;
+      stroke-dashoffset: 130px;
+      -webkit-transition: stroke-dashoffset 4.1s linear 0s;
+      transition: stroke-dashoffset 700ms ease-in-out;
+      }
+    </style>
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="90.594px" height="59.714px" viewBox="0 0 90.594 59.714" enable-background="new 0 0 90.594 59.714" xml:space="preserve">
+      <polyline class="check" fill="none" stroke="#4A91A9" stroke-width="5" stroke-miterlimit="10" points="1.768,23.532 34.415,56.179 88.826,1.768"/>
+    </svg>
+    <h1>Thank you</h1>
+    <p>Thanks for helping make the library better</p>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('.check').css('stroke-dashoffset', 0);
+
+        setTimeout(reloadCollection, 5000);
+        function reloadCollection (){
+          window.location.replace("{{url_for('analytics_collect')}}");
+        }
+
+      });
+    </script>
+  {% endif %}
+</body>
+</html>

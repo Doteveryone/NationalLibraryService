@@ -106,3 +106,16 @@ footer {
     color:$black;
   }
 }
+
+.analytics-collection {
+  padding-top:2rem;
+  text-align:center;
+  h1 {
+    font-size:2rem;
+  }
+  button {
+    height:5rem;
+    font-weight:bold;
+    width:100%;
+  }
+}
