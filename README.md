@@ -1,12 +1,12 @@
-[![Build Status](https://travis-ci.org/Doteveryone/LegislationTagger.svg?branch=master)](https://travis-ci.org/Doteveryone/LegislationTagger)
+[![Build Status](https://travis-ci.org/Doteveryone/NationalLibraryService.svg?branch=master)](https://travis-ci.org/Doteveryone/NationalLibraryService)
 
 ###Installing and running locally
 
 Clone the repo and install requirements:
 
 ```
-git clone git@github.com:Doteveryone/LegislationTagger.git
-cd LegislationTagger
+git clone git@github.com:Doteveryone/NationalLibraryService.git
+cd NationalLibraryService
 virtualenv .
 pip install -r requirements.txt
 ```
