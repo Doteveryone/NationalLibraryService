@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Search results{% endblock %}
+{% block content %}
+  <section class="row expanded">
+    <div class="small-12 large-8 columns">
+      {% include '_search_form.html' %}
+      <div id="search_map" class="map"></div>
+      {% if query %}
+        <h2>Results for <em>{{query}}</em></h2>
+      {% endif %}
+      {% if results['libraries'] %}
+        <ul class="tabs" data-tabs id="search_tabs">
+          <li class="tabs-title is-active"><a href="#search_books" aria-selected="true">Books</a></li>
+          <li class="tabs-title"><a href="#search_events">Events</a></li>
+          <li class="tabs-title"><a href="#search_libraries">Libraries</a></li>
+          <li class="tabs-title"><a href="#search_notices">Notices</a></li>
+        </ul>
+        <ol>
+          {% for result in results['libraries'] %}
+            <li>
+              <a href="{{url_for('library', slug=result.slug)}}">{{result.name}}</a>
+            </li>
+          {% endfor %}
+        </ol>
+      {% else %}
+        <p>Sorry, no results were found</p>
+      {% endif %}
+    </div>
+  </section>
+  <script type="text/javascript">
+    var map = L.map('search_map', {zoomControl: false,
+    attributionControl: false, dragging: false, touchZoom: false, scrollWheelZoom: false, doubleClickZoom: false, boxZoom: false});
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoibWVtZXNwcmluZyIsImEiOiJjaXJkbjBiNWwwMDl6aWxsd2Q1aDUxaXFuIn0.TrZ_GEqA1Ib1FFiVa-xp4g'
+}).addTo(map);
+    map.locate({setView: true, maxZoom: 13});
+  </script>
+  
+{% endblock %}

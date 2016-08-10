@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Libraries{% endblock %}
+{% block content %}
+  <section class="row collapse">
+    <div class="library-header small-12 large-7 columns">
+      <h1>{{library.name}}</h1>
+      <div class="header-image">
+        <img src="{{url_for('static', filename='images/libraries/' + library.image_file_name)}}" />
+      </div>
+      <nav>
+        <ul class="menu">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  <section class="row">
+    <div class="small-12 large-7 columns">
+      <h2>Facilities &amp; services</h2>
+      <dl>
+        <dt>Wifi</dt>
+        <dd>Free, unlimited use, but insecure</dd>
+        <dt>Computers</dt>
+        <dd>30 desktop computers, maximum 30 minutes. <a href="#">Book a computer</a>.</dd>
+        <dt>On-line catalogue access</dt>
+        <dd>
+          BBC Archive, Future Learn, Code Academy and others. <a href="#">View all</a>
+        </dd>
+      </dl>
+      <h2>Address, opening times &amp; accessibility</h2>
+      <div id="library_map" class="map"></div>
+      <p>
+        {{library.address}}
+      </p>
+      <p>The library is fully wheelchair accessible.</p>
+      <h3>
+        Opening times
+        <span class="label success">The library is currently open</span>
+      </h3>
+      <ul>
+        <li>Monday: 9am to 5pm</li>
+        <li>Tuesday: Closed</li>
+        <li>Wednesday: 9am to 7pm</li> 
+        <li>Thursday: Closed</li>
+        <li>Friday: 9am to 7pm</li>
+        <li>Saturday: 9am to 1pm</li>
+      </ul>
+      <aside class="callout secondary">
+        <p>
+          This library is managed by <a href="">{{library.library_authority}}</a> and the council cabinet member responsible for this service is <a href="#">{{library.accountable_councillor}}</a>.
+        </p>
+        <p>
+          <a href="{{url_for('register_entry', id=library.id)}}">View the data held about this institution on the Register of Libraries.</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+  <script type="text/javascript">
+    var map = L.map('library_map', {zoomControl: false,
+    attributionControl: false, dragging: false, touchZoom: false, scrollWheelZoom: false, doubleClickZoom: false, boxZoom: false});
+    map.setView([{{library.lnglat['coordinates'][1]}}, {{library.lnglat['coordinates'][0]}}], 15);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoibWVtZXNwcmluZyIsImEiOiJjaXJkbjBiNWwwMDl6aWxsd2Q1aDUxaXFuIn0.TrZ_GEqA1Ib1FFiVa-xp4g'
+}).addTo(map);
+  </script>
+{% endblock %}

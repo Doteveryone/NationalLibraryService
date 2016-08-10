@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Ask a librarian{% endblock %}
+{% block content %}
+  <section class="row">
+    <div class="small-12 large-7 columns">
+      <h1>Ask a librarian</h1>
+      <div id="chat">
+        <ul id="conversation">
+          
+        </ul>
+        <div id="text">
+          <textarea></textarea>
+          <button class="button expanded">Send</button>
+        </div>
+      </div>
+  </section>
+  <script type="text/javascript">
+    $('#chat ul').delay(3000).queue(function (next) {
+      $(this).append("<li class=\"librarian\">Hello, Martin from Sheffield libraries here. How can I help?</li>");
+        $('#chat').css({'background-image': 'inherit'});
+      next();
+    });
+
+    $('#chat button').click(function(){
+        if ($('#chat textarea').val() != "") {
+          $('#chat ul').append("<li class=\"user\">" + $('#chat textarea').val() + "</li>")
+          $('#chat textarea').val("");
+        }
+    });
+  </script>
+{% endblock %}

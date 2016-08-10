@@ -1,0 +1,108 @@
+@import 'foundation';
+@import '_settings.scss';
+@include foundation-everything;
+
+a {
+  text-decoration:underline;
+}
+
+header {
+  background-color: $primary-color;
+  margin-bottom: $global-margin;
+  padding-top:$global-padding / 4;
+  a, a:hover {
+    text-decoration:none;
+    color:#fffce4;
+  }
+}
+
+main {
+  min-height:400px;
+}
+
+.library-header {
+  margin-bottom:$global-margin;
+  h1 {
+    padding-left:$global-padding / 2;
+    padding-right:$global-padding / 2;
+  }
+  .header-image {
+    overflow: hidden;
+    position: relative;
+    height:120px;
+    img {
+      position: absolute;
+      top:-200px;
+      left:0;
+      width:100%;
+    }
+  }
+}
+
+.map {
+  height:100px;
+}
+
+#chat {
+  min-height:400px;
+  background-color:$light-gray;
+  background-image:url(../images/loading.gif);
+  background-position:top center;
+  #text {
+    position:fixed;
+    bottom:1%;
+    right:1%;
+    left:1%;
+    width:98%;
+    height:20%;
+    textarea {
+      height:50%;
+    }
+  }
+  ul {
+    list-style-type: none;
+    padding:$global-padding $global-padding $global-padding $global-padding;
+    margin:0;
+    li {
+      margin-left:0;
+      font-weight:bold;
+      padding-bottom:$global-padding;
+      min-height:60px;
+    }
+    li.user {
+      color:$secondary-color;
+      padding-right:60px;
+      background:url(../images/user-1.jpg) no-repeat;
+      background-size: 50px;
+      background-position: right 0;
+    }
+    li.librarian {
+      color:$primary-color;
+      padding-left:60px;
+      background:url(../images/librarian-1.jpg) no-repeat;
+      background-size: 50px;
+      background-position: 0 0;
+    }
+  }
+}
+
+footer {
+  padding-top:$global-padding * 2;
+  padding-bottom:$global-padding * 2;
+  background-image: url(../images/grey-crest.png);
+  background-position: $global-padding;
+  background-repeat:no-repeat;
+  background-color:$medium-gray;
+  color: $dark-gray;
+  text-align:center;
+  background-size: auto 100px;
+  background-position: center $global-padding * 2;
+  padding-top:150px;
+  min-height:150px;
+  a {
+    color:$dark-gray;
+  }
+  a:hover {
+    color:$black;
+  }
+}

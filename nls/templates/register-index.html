@@ -1,0 +1,22 @@
+{% extends "register-base.html" %}
+{% block title %}Library register{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="small-12 large-12 columns">
+
+  <p class="lead">
+    This is the UK register of libraries. The registrar is <a href="#">Helen Dawes</a>. Individual library authorities are responsible for keeping their register entry up-to-date.
+  </p>
+
+    <form method="get" action="{{url_for('register_index')}}">
+      <label for="q">Search the register</label>
+      <div class="input-group">
+        <input name="q" id="q" type="text" class="input-group-field"/>
+        <div class="input-group-button">
+          <button type="submit" class="button">Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

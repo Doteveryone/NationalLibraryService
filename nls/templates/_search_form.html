@@ -1,0 +1,9 @@
+      <form method="get" action="{{url_for('search')}}">
+        <label for="q">Search the National Library Service</label>
+        <div class="input-group">
+          <input name="q" id="q" type="text" class="input-group-field" value="{% if query %}{{query}}{% endif %}" placeholder="Books, libraries, events, training or postcode" />
+          <div class="input-group-button">
+            <button type="submit" class="button">Go</button>
+          </div>
+        </div>
+      </form>

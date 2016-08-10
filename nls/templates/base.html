@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />
+    <link href="{{url_for('static', filename='vendor/leaflet/leaflet.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{url_for('static', filename='vendor/chatjs/css/jquery.chatjs.css')}}" />
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" />
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/foundation-sites/foundation.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/leaflet/leaflet.js')}}"></script>
+
+    <script src="{{url_for('static', filename='javascript/main.js')}}"></script>
+    <title>{% block title %}{% endblock %}</title>
+  {% block head %}
+  {% endblock %}
+</head>
+<body>
+  <header role="banner"  class="expanded row">
+    <div class="small-12 large-8 columns">
+      <h1>
+        <a href="{{url_for('index')}}">National Library Service</a>
+      </h1>
+<!--       <nav role="navigation">
+        <ul class="menu">
+          <li{% if menu_item == 'index' or not menu_item %} class="active"{% endif %}>
+            <a href="{{url_for('index')}}">Borrow a book</a>
+          </li>
+          <li{% if menu_item == 'space' %} class="active"{% endif %}>
+            <a href="{{url_for('space')}}">Book a space</a>
+          </li>
+          <li{% if menu_item == 'libraries' %} class="active"{% endif %}>
+            <a href="{{url_for('libraries')}}">Find a library</a>
+          </li>
+          <li{% if menu_item == 'events' %} class="active"{% endif %}>
+            <a href="{{url_for('events')}}">Events</a>
+          </li>
+        </ul>
+      </nav> -->
+    </div>
+  </header>
+  <main role="main">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="small-12 large-8 columns">
+          {% for message  in messages %}
+            <p>
+              {{ message|safe }}&nbsp;
+            </p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  {% if not hide_footer %}
+    <footer>
+      <div class="row">
+        <div class="columns small-12 large-6 large-offset-3">
+          This service is operated by the <a href="https://www.gov.uk/government/ministers/secretary-of-state-for-culture-olympics-media-and-sport">Secretary of State for Culture, Media and Sport</a> in their <a href="http://www.legislation.gov.uk/ukpga/1964/75">capacity as Superintendent of the Library Service</a>. All English local authority library services are members.
+        </div>
+      </div>
+    </footer>
+  {% endif %}
+</body>
