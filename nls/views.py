@@ -39,6 +39,17 @@ def register_entry(id):
         abort(404)
     return render_template('register-entry.html', library=library)
 
+@app.route('/register/search')
+def register_search():
+    query = request.args.get('q', False)
+    results = {}
+    if query == '':
+        query = False
+
+    libraries = models.Library.objects.search_text(query).order_by('$text_score')
+
+    return render_template('register-search.html', query=query, libraries=libraries)
+
 @app.route('/events')
 def events():
     return render_template('events.html')
@@ -58,7 +69,7 @@ def search():
     if query == '':
         query = False
 
-    results['libraries'] = models.Library.objects.all()
+    results['libraries'] = models.Library.objects.search_text(query).order_by('$text_score')
 
     return render_template('search.html', query=query, results=results)
 

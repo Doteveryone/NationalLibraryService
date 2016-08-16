@@ -1,0 +1,19 @@
+{% extends "register-base.html" %}
+{% block title %}Library register{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="small-12 large-12 columns">
+    {% if libraries %}
+        <ol>
+          {% for library in libraries %}
+            <li>
+              <a href="{{url_for('register_entry', id=library.id)}}">{{library.name}}</a>
+            </li>
+          {% endfor %}
+        </ol>
+      {% else %}
+        <p>Sorry, no results were found</p>
+      {% endif %}
+  </div>
+</div>
+{% endblock %}
