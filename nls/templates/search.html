@@ -8,23 +8,45 @@
       {% if query %}
         <h2>Results for <em>{{query}}</em></h2>
       {% endif %}
-      {% if results['libraries'] %}
+      
         <ul class="tabs" data-tabs id="search_tabs">
-          <li class="tabs-title is-active"><a href="#search_books" aria-selected="true">Books</a></li>
+          <li class="tabs-title is-active"><a href="#search_books" aria-selected="true">Books{% if results['books']%} ({{results['books']|length}}){% endif %}</a></li>
           <li class="tabs-title"><a href="#search_events">Events</a></li>
-          <li class="tabs-title"><a href="#search_libraries">Libraries</a></li>
+          <li class="tabs-title"><a href="#search_libraries">Libraries{% if results['books']%} ({{results['libraries']|length}}){% endif %}</a></li>
           <li class="tabs-title"><a href="#search_notices">Notices</a></li>
         </ul>
-        <ol>
-          {% for result in results['libraries'] %}
-            <li>
-              <a href="{{url_for('library', slug=result.slug)}}">{{result.name}}</a>
-            </li>
-          {% endfor %}
-        </ol>
-      {% else %}
-        <p>Sorry, no results were found</p>
-      {% endif %}
+        <div class="tabs-content" data-tabs-content="search_tabs">
+
+          <div class="tabs-panel  is-active" id="search_books">
+            {% if results['books'] %}
+              <ol>
+                {% for result in results['books'] %}
+                  {% if result.isbn[0] and result.author %}
+                    <li>
+                      <a href="{{url_for('book', isbn=result.isbn[0])}}">{{result.title}} &mdash; {{result.author}}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ol>
+            {% else %}
+              <p>Sorry, no results were found</p>
+            {% endif %}
+          </div>
+
+          <div class="tabs-panel" id="search_libraries">
+            {% if results['libraries'] %}
+              <ol>
+                {% for result in results['libraries'] %}
+                  <li>
+                    <a href="{{url_for('library', slug=result.slug)}}">{{result.name}}</a>
+                  </li>
+                {% endfor %}
+              </ol>
+            {% else %}
+              <p>Sorry, no results were found</p>
+            {% endif %}
+          </div>
+        </div>
     </div>
   </section>
   <script type="text/javascript">

@@ -83,7 +83,7 @@
       $(document).ready(function () {
         $('.check').css('stroke-dashoffset', 0);
 
-        setTimeout(reloadCollection, 5000);
+        setTimeout(reloadCollection, 3000);
         function reloadCollection (){
           window.location.replace("{{url_for('analytics_collect')}}");
         }

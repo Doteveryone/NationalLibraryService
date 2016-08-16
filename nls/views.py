@@ -1,6 +1,7 @@
 from flask import request, render_template, send_from_directory, abort, redirect, url_for, flash
 from nls import app, models, forms
 from mongoengine import DoesNotExist
+import openlibrary
 
 @app.route('/research')
 def research():
@@ -18,6 +19,20 @@ def space():
 def libraries():
     libraries = models.Library.objects()
     return render_template('libraries.html', libraries=libraries)
+
+@app.route('/books/<isbn>')
+def book(isbn):
+    # open_library = openlibrary.BookSearch()
+    # results['books'] = open_library.get_by_title(query)
+    search = openlibrary.Search()
+    search.uri = openlibrary.SEARCH_URI
+    results = search.get(**{'isbn': isbn})
+    if len(results['docs']) > 0:
+        book = results['docs'][0]
+        print results['docs'][0]
+    else:
+        book = None
+    return render_template('book.html', book=book)
 
 @app.route('/libraries/<slug>')
 def library(slug):
@@ -42,11 +57,12 @@ def register_entry(id):
 @app.route('/register/search')
 def register_search():
     query = request.args.get('q', False)
-    results = {}
+    libraries = []
     if query == '':
         query = False
 
-    libraries = models.Library.objects.search_text(query).order_by('$text_score')
+    if query:
+        libraries = models.Library.objects.search_text(query).order_by('$text_score')
 
     return render_template('register-search.html', query=query, libraries=libraries)
 
@@ -69,7 +85,13 @@ def search():
     if query == '':
         query = False
 
-    results['libraries'] = models.Library.objects.search_text(query).order_by('$text_score')
+    if query:
+        #libraries
+        results['libraries'] = models.Library.objects.search_text(query).order_by('$text_score')
+
+        #books
+        open_library = openlibrary.BookSearch()
+        results['books'] = open_library.get_by_title(query)
 
     return render_template('search.html', query=query, results=results)
 
