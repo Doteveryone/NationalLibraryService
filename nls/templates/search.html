@@ -55,11 +55,16 @@
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
+    maxZoom: 12,
+    center: L.latLng(53.2688627,-1.4371918),
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1IjoibWVtZXNwcmluZyIsImEiOiJjaXJkbjBiNWwwMDl6aWxsd2Q1aDUxaXFuIn0.TrZ_GEqA1Ib1FFiVa-xp4g'
 }).addTo(map);
     map.locate({setView: true, maxZoom: 13});
+    map.on('locationfound', function(e) {
+      //the geo,location is just for show, lets head to Derbyshire
+      map.setView(L.latLng(53.2688627,-1.4371918));
+    })
   </script>
   
 {% endblock %}

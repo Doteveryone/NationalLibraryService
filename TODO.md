@@ -1,6 +1,6 @@
 TODO:
 
-
+* map should default to derbyshire
 * add events
 * wiki sub-pages on library pages that anyone can edit
 * Show access to online courses
