@@ -18,28 +18,14 @@
 <body>
   <header id="titlebar" role="banner"  class="expanded row">
     <div class="small-12 large-8 columns">
-      <h1>
-        <a href="{{url_for('index')}}">
-          <img class="logo" src="{{url_for('static', filename='images/logo.svg')}}">
-          National Library Service
-        </a>
-      </h1>
-<!--       <nav role="navigation">
-        <ul class="menu">
-          <li{% if menu_item == 'index' or not menu_item %} class="active"{% endif %}>
-            <a href="{{url_for('index')}}">Borrow a book</a>
-          </li>
-          <li{% if menu_item == 'space' %} class="active"{% endif %}>
-            <a href="{{url_for('space')}}">Book a space</a>
-          </li>
-          <li{% if menu_item == 'libraries' %} class="active"{% endif %}>
-            <a href="{{url_for('libraries')}}">Find a library</a>
-          </li>
-          <li{% if menu_item == 'events' %} class="active"{% endif %}>
-            <a href="{{url_for('events')}}">Events</a>
-          </li>
-        </ul>
-      </nav> -->
+      {% block header %}
+        <h1>
+          <a href="{{url_for('index')}}">
+            <img class="logo" src="{{url_for('static', filename='images/logo.svg')}}">
+            National Library Service
+          </a>
+        </h1>
+      {% endblock %}
     </div>
   </header>
   <main role="main">

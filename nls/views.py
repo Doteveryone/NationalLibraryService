@@ -14,12 +14,7 @@ def index():
 
 @app.route('/space')
 def space():
-    return render_template('space.html')    
-
-@app.route('/libraries')
-def libraries():
-    libraries = models.Library.objects()
-    return render_template('libraries.html', libraries=libraries)
+    return render_template('space.html')
 
 @app.route('/books/<isbn>')
 def book(isbn):
@@ -42,13 +37,27 @@ def book(isbn):
 
     return render_template('book.html', book=book, libraries_with_book=libraries_with_book)
 
+@app.route('/libraries')
+def libraries():
+    libraries = models.Library.objects()
+    return render_template('libraries.html', libraries=libraries)
+
 @app.route('/libraries/<slug>')
 def library(slug):
     try:
         library = models.Library.objects.get(slug=slug)
     except (DoesNotExist):
         abort(404)
-    return render_template('library.html', library=library)
+    return render_template('library.html', library=library, menu_item='home')
+
+@app.route('/libraries/<slug>/events')
+def library_events(slug):
+    try:
+        library = models.Library.objects.get(slug=slug)
+        events = models.Event.objects(library=library).order_by('occurs_at')
+    except (DoesNotExist):
+        abort(404)
+    return render_template('library_events.html', library=library, events=events, menu_item='events')
 
 @app.route('/events/<id>')
 def event(id):

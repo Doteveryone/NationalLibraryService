@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Libraries{% endblock %}
+{% block header %}
+  <h1>
+    <a href="{{url_for('library', slug=library.slug)}}">
+      <img class="logo" src="{{url_for('static', filename='images/logo.svg')}}">
+      {{library.name}}
+    </a>
+  </h1>
+  <h2>Part of the <a href="{{url_for('index')}}">National Library Service</a></h2>
+  <span class="open-status label success">Open now</span>
+{% endblock %}
+{% block content %}
+  <section class="row collapse">
+    <div class="library-header small-12 large-7 columns">
+      <!-- <div class="header-image">
+        <img src="{{url_for('static', filename='images/libraries/' + library.image_file_name)}}" />
+      </div> -->
+      <nav>
+        <ul class="menu">
+          <li{% if menu_item=='home'%} class="active"{% endif %}><a href="{{url_for('library', slug=library.slug)}}">Home</a></li>
+          <li{% if menu_item=='events' %} class="active"{% endif %}><a href="{{url_for('library_events', slug=library.slug)}}">Events</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  {% block library_content %}
+  {% endblock %}
+{% endblock %}

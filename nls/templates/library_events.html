@@ -1,0 +1,20 @@
+{% extends "library_base.html" %}
+{% block title %}Libraries{% endblock %}
+{% block library_content %}
+  <section class="row">
+    <div class="small-12 large-7 columns">
+      <h2>Events at {{library.name}}</h2>
+      {% if events %}
+        {% for event in events %}
+          <div class="callout">
+            <span class="label secondary" style="float:right">{{event.category}}</span>
+            <h3><a href="{{url_for('event', id=event.id)}}">{{event.title}}</a></h3>
+          </div>
+        {% endfor %}
+        <p>If you would like to organise an event in your library, <a href="#">let us know</a>.</p>
+      {% else %}
+        <p>Sorry, no there are no events planned at the moment. If you would like to organise one, <a href="#">let us know</a>.</p>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

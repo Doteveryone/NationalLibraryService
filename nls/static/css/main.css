@@ -1337,41 +1337,41 @@ h6 {
     line-height: 0; }
 
 h1 {
-  font-size: 1.5rem; }
-
-h2 {
-  font-size: 1.25rem; }
-
-h3 {
-  font-size: 1.1875rem; }
-
-h4 {
   font-size: 1.125rem; }
 
-h5 {
+h2 {
   font-size: 1.0625rem; }
 
-h6 {
+h3 {
   font-size: 1rem; }
+
+h4 {
+  font-size: 0.9375rem; }
+
+h5 {
+  font-size: 0.875rem; }
+
+h6 {
+  font-size: 0.8125rem; }
 
 @media screen and (min-width: 40em) {
   h1 {
-    font-size: 3rem; }
-
-  h2 {
     font-size: 2.5rem; }
 
-  h3 {
+  h2 {
     font-size: 1.9375rem; }
 
-  h4 {
+  h3 {
     font-size: 1.5625rem; }
 
-  h5 {
+  h4 {
     font-size: 1.25rem; }
 
+  h5 {
+    font-size: 1rem; }
+
   h6 {
-    font-size: 1rem; } }
+    font-size: 0.875rem; } }
 a {
   color: #4A91A9;
   text-decoration: none;
@@ -1833,10 +1833,10 @@ select {
       background-color: #5f5f5f;
       color: #fefefe; }
   .button.success {
-    background-color: #3adb76;
+    background-color: #b2c462;
     color: #fefefe; }
     .button.success:hover, .button.success:focus {
-      background-color: #22bb5b;
+      background-color: #97ab40;
       color: #fefefe; }
   .button.warning {
     background-color: #ffae00;
@@ -1871,11 +1871,11 @@ select {
         border-color: #3c3c3c;
         color: #3c3c3c; }
     .button.hollow.success {
-      border: 1px solid #3adb76;
-      color: #3adb76; }
+      border: 1px solid #b2c462;
+      color: #b2c462; }
       .button.hollow.success:hover, .button.hollow.success:focus {
-        border-color: #157539;
-        color: #157539; }
+        border-color: #5f6b28;
+        color: #5f6b28; }
     .button.hollow.warning {
       border: 1px solid #ffae00;
       color: #ffae00; }
@@ -1989,7 +1989,7 @@ select {
     background: #777;
     color: #fefefe; }
   .badge.success {
-    background: #3adb76;
+    background: #b2c462;
     color: #fefefe; }
   .badge.warning {
     background: #ffae00;
@@ -2095,10 +2095,10 @@ select {
       background-color: #5f5f5f;
       color: #fefefe; }
   .button-group.success .button {
-    background-color: #3adb76;
+    background-color: #b2c462;
     color: #fefefe; }
     .button-group.success .button:hover, .button-group.success .button:focus {
-      background-color: #22bb5b;
+      background-color: #97ab40;
       color: #fefefe; }
   .button-group.warning .button {
     background-color: #ffae00;
@@ -2148,7 +2148,7 @@ select {
   .callout.secondary {
     background-color: #ebebeb; }
   .callout.success {
-    background-color: #e1faea; }
+    background-color: #f3f6e7; }
   .callout.warning {
     background-color: #fff3d9; }
   .callout.alert {
@@ -2642,7 +2642,7 @@ select {
     background: #777;
     color: #fefefe; }
   .label.success {
-    background: #3adb76;
+    background: #b2c462;
     color: #fefefe; }
   .label.warning {
     background: #ffae00;
@@ -2905,7 +2905,7 @@ body {
   .progress.secondary .progress-meter {
     background-color: #777; }
   .progress.success .progress-meter {
-    background-color: #3adb76; }
+    background-color: #b2c462; }
   .progress.warning .progress-meter {
     background-color: #ffae00; }
   .progress.alert .progress-meter {
@@ -3604,13 +3604,30 @@ header#titlebar {
     color: #fffce4; }
   header#titlebar .logo {
     height: 30px;
-    vertical-align: middle;
+    vertical-align: middle; }
+  header#titlebar h1 {
+    font-size: 26px; }
+  header#titlebar h2 {
+    font-size: 0.7em;
+    color: #fffce4;
+    margin: 0;
     position: relative;
-    top: -3px; }
+    top: -0.7em; }
+  header#titlebar .open-status {
+    position: absolute;
+    top: 14px;
+    right: 8px;
+    color: #0b0c0c;
+    font-weight: bold;
+    text-transform: uppercase; }
   @media screen and (min-width: 40em) {
     header#titlebar .logo {
       height: 50px;
-      top: -7px; } }
+      top: -7px; }
+    header#titlebar h1 {
+      font-size: 48px; }
+    header#titlebar h2 {
+      font-size: 14px; } }
 
 main {
   min-height: 400px; }
@@ -3705,6 +3722,10 @@ ul.buttonlist li {
 .book-cover {
   background: #fafafa;
   min-height: 200px;
-  min-width: 200px; }
+  min-width: 200px;
+  text-align: center; }
+  .book-cover img {
+    height: 250px;
+    margin: 1rem; }
 
 /*# sourceMappingURL=main.css.map */

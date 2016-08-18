@@ -17,13 +17,36 @@ header#titlebar {
   .logo {
     height:30px;
     vertical-align: middle;
+  }
+  h1 {
+    font-size:26px;
+  }
+  h2 {
+    font-size:0.7em;
+    color:#fffce4;
+    margin:0;
     position:relative;
-    top: -3px;
+    top:-0.7em;
+   
+  }
+  .open-status {
+    position:absolute;
+    top:14px;
+    right:8px;
+    color:$black;
+    font-weight:bold;
+    text-transform: uppercase;
   }
   @media screen and (min-width: 40em) {
     .logo {
       height:50px;
       top: -7px;
+    }
+    h1 {
+      font-size:48px;
+    }
+    h2 {
+      font-size:14px;
     }
   }
 }
@@ -145,5 +168,10 @@ ul.buttonlist {
 .book-cover {
   background:#fafafa;
   min-height:200px;
-  min-width:200px
+  min-width:200px;
+  text-align:center;
+  img {
+    height:250px;
+    margin:$global-margin;
+  }
 }

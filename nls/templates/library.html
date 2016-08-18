@@ -1,20 +1,6 @@
-{% extends "base.html" %}
+{% extends "library_base.html" %}
 {% block title %}Libraries{% endblock %}
-{% block content %}
-  <section class="row collapse">
-    <div class="library-header small-12 large-7 columns">
-      <h1>{{library.name}}</h1>
-      <div class="header-image">
-        <img src="{{url_for('static', filename='images/libraries/' + library.image_file_name)}}" />
-      </div>
-      <nav>
-        <ul class="menu">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Events</a></li>
-        </ul>
-      </nav>
-    </div>
-  </section>
+{% block library_content %}
   <section class="row">
     <div class="small-12 large-7 columns">
       <h2>Facilities &amp; services</h2>
@@ -36,7 +22,6 @@
       <p>The library is fully wheelchair accessible.</p>
       <h3>
         Opening times
-        <span class="label success">The library is currently open</span>
       </h3>
       <ul>
         <li>Monday: 9am to 5pm</li>
