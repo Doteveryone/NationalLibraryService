@@ -11,8 +11,21 @@ class Library(db.Document):
     image_file_name = db.StringField(max_length=80)
 
     meta = {'indexes': [
-    {'fields': ['$name', '$address', '$library_authority'],
-     'default_language': 'english',
-     'weights': {'name': 30, 'library_authority': 10, 'address': 10}
-    }
+        {'fields': ['$name', '$address', '$library_authority'],
+        'default_language': 'english',
+        'weights': {'name': 30, 'library_authority': 10, 'address': 10}
+        }
+    ]}
+
+class Event(db.Document):
+    title = db.StringField(max_length=150)
+    category = db.StringField(max_length=50)
+    library = db.ReferenceField('Library')
+    occurs_at = db.DateTimeField()
+
+    meta = {'indexes': [
+        {'fields': ['$title'],
+        'default_language': 'english',
+        'weights': {'title': 30}
+        }
     ]}

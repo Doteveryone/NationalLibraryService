@@ -11,7 +11,7 @@
       
         <ul class="tabs" data-tabs id="search_tabs">
           <li class="tabs-title is-active"><a href="#search_books" aria-selected="true">Books{% if results['books']%} ({{results['books']|length}}){% endif %}</a></li>
-          <li class="tabs-title"><a href="#search_events">Events</a></li>
+          <li class="tabs-title"><a href="#search_events">Events{% if results['events']%} ({{results['events']|length}}){% endif %}</a></li>
           <li class="tabs-title"><a href="#search_libraries">Libraries{% if results['books']%} ({{results['libraries']|length}}){% endif %}</a></li>
           <li class="tabs-title"><a href="#search_notices">Notices</a></li>
         </ul>
@@ -28,6 +28,20 @@
                   {% endif %}
                 {% endfor %}
               </ol>
+            {% else %}
+              <p>Sorry, no results were found</p>
+            {% endif %}
+          </div>
+
+          <div class="tabs-panel" id="search_events">
+            {% if results['events'] %}
+              <ol>
+                {% for result in results['events'] %}
+                  <li>
+                    <span class="label secondary">{{result.category}}</span> <a href="{{url_for('event', id=result.id)}}">{{result.title}} &mdash; {{result.library.name}} ({{result.occurs_at}})</a>
+                  </li>
+                {% endfor %}
+              </ol>  
             {% else %}
               <p>Sorry, no results were found</p>
             {% endif %}

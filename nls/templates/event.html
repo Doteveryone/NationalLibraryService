@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Libraries{% endblock %}
+{% block content %}
+  <header class="row">
+    <div class="columns small-12">
+      <h1>{{event.title}}</h1>
+      <h2>{{event.occurs_at}}</h2>
+      <h3>
+        <a href="{{url_for('library', slug=event.library.slug)}}">{{event.library.name}}</a>
+      </h3>
+    </div>
+  </header>
+    <section class="row">
+      <div class="small-12 large-7 columns">
+      
+      </div>
+    </section>
+{% endblock %}

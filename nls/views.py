@@ -50,6 +50,14 @@ def library(slug):
         abort(404)
     return render_template('library.html', library=library)
 
+@app.route('/events/<id>')
+def event(id):
+    try:
+        event = models.Event.objects.get(id=id)
+    except (DoesNotExist):
+        abort(404)
+    return render_template('event.html', event=event)
+
 @app.route('/register')
 def register_index():
     return render_template('register-index.html')
@@ -100,6 +108,9 @@ def search():
         #books
         open_library = openlibrary.BookSearch()
         results['books'] = open_library.get_by_title(query)
+
+        #events
+        results['events'] = models.Event.objects.search_text(query).order_by('$text_score')
 
     return render_template('search.html', query=query, results=results)
 

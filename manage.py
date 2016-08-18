@@ -6,6 +6,9 @@ from time import sleep
 from slugify import slugify
 import re
 import os
+import csv
+import random
+from datetime import date, timedelta, time, datetime
 
 manager = Manager(app)
 
@@ -17,6 +20,31 @@ def resetdatabase():
       db = connect(app.config['MONGODB_DB'], host=app.config['MONGODB_HOST'],  port=app.config['MONGODB_PORT'])
       db.drop_database(app.config['MONGODB_DB'])
       print("Deleted all collections from database ...")
+
+@manager.command
+def importevents():
+    
+    #get all libraries
+    libraries = models.Library.objects()
+
+    #add them randomly 10 times
+    for i in range(10):
+        #get list of example events
+        f = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data/events.csv'))
+        for row in csv.reader(f):
+
+            #create a random date in next few week
+            event_date = date.today() + timedelta(days=random.randrange(0, 35))
+            event_time = time(random.randrange(10, 18), random.choice([00, 30]))
+
+            #save event
+            event = models.Event()
+            event.title = row[0]
+            event.category = row[1]
+            event.library = libraries[random.randrange(0, len(libraries) - 1 )]
+            event.occurs_at = datetime.combine(event_date, event_time)
+            event.save()
+
 
 @manager.command
 def importlibraries():
@@ -60,6 +88,13 @@ def importlibraries():
 
         #save
         library.save()
+
+@manager.command
+def importall():
+    resetdatabase()
+    importlibraries()
+    importevents()
+
 
 # @manager.command
 # def temp():
