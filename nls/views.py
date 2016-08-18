@@ -2,6 +2,7 @@ from flask import request, render_template, send_from_directory, abort, redirect
 from nls import app, models, forms
 from mongoengine import DoesNotExist
 import openlibrary
+import random
 
 @app.route('/research')
 def research():
@@ -24,6 +25,8 @@ def libraries():
 def book(isbn):
     # open_library = openlibrary.BookSearch()
     # results['books'] = open_library.get_by_title(query)
+
+    #get the book
     search = openlibrary.Search()
     search.uri = openlibrary.SEARCH_URI
     results = search.get(**{'isbn': isbn})
@@ -32,7 +35,12 @@ def book(isbn):
         print results['docs'][0]
     else:
         book = None
-    return render_template('book.html', book=book)
+
+    #Get libraries it can be borrowed from (random 3 libraries)
+    libraries = models.Library.objects()
+    libraries_with_book = [ libraries[i] for i in sorted(random.sample(xrange(len(libraries)), 3)) ]
+
+    return render_template('book.html', book=book, libraries_with_book=libraries_with_book)
 
 @app.route('/libraries/<slug>')
 def library(slug):

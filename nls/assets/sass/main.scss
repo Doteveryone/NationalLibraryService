@@ -6,13 +6,25 @@ a {
   text-decoration:underline;
 }
 
-header {
+header#titlebar {
   background-color: $primary-color;
   margin-bottom: $global-margin;
   padding-top:$global-padding / 4;
   a, a:hover {
     text-decoration:none;
     color:#fffce4;
+  }
+  .logo {
+    height:30px;
+    vertical-align: middle;
+    position:relative;
+    top: -3px;
+  }
+  @media screen and (min-width: 40em) {
+    .logo {
+      height:50px;
+      top: -7px;
+    }
   }
 }
 
@@ -118,4 +130,20 @@ footer {
     font-weight:bold;
     width:100%;
   }
+}
+
+ul.buttonlist {
+  .button {
+    float:right;
+  }
+  li {
+    clear:both;
+  }
+}
+
+
+.book-cover {
+  background:#fafafa;
+  min-height:200px;
+  min-width:200px
 }

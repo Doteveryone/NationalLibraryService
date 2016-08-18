@@ -3595,13 +3595,22 @@ table.hover tr:nth-of-type(even):hover {
 a {
   text-decoration: underline; }
 
-header {
+header#titlebar {
   background-color: #4A91A9;
   margin-bottom: 1rem;
   padding-top: 0.25rem; }
-  header a, header a:hover {
+  header#titlebar a, header#titlebar a:hover {
     text-decoration: none;
     color: #fffce4; }
+  header#titlebar .logo {
+    height: 30px;
+    vertical-align: middle;
+    position: relative;
+    top: -3px; }
+  @media screen and (min-width: 40em) {
+    header#titlebar .logo {
+      height: 50px;
+      top: -7px; } }
 
 main {
   min-height: 400px; }
@@ -3687,5 +3696,15 @@ footer {
     height: 5rem;
     font-weight: bold;
     width: 100%; }
+
+ul.buttonlist .button {
+  float: right; }
+ul.buttonlist li {
+  clear: both; }
+
+.book-cover {
+  background: #fafafa;
+  min-height: 200px;
+  min-width: 200px; }
 
 /*# sourceMappingURL=main.css.map */

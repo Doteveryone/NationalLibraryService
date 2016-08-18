@@ -16,10 +16,13 @@
   {% endblock %}
 </head>
 <body>
-  <header role="banner"  class="expanded row">
+  <header id="titlebar" role="banner"  class="expanded row">
     <div class="small-12 large-8 columns">
       <h1>
-        <a href="{{url_for('index')}}">National Library Service</a>
+        <a href="{{url_for('index')}}">
+          <img class="logo" src="{{url_for('static', filename='images/logo.svg')}}">
+          National Library Service
+        </a>
       </h1>
 <!--       <nav role="navigation">
         <ul class="menu">

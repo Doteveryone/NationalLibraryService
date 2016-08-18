@@ -1,11 +1,38 @@
 {% extends "base.html" %}
 {% block title %}Libraries{% endblock %}
 {% block content %}
+  <header class="row">
+    <div class="columns small-12">
+      <h1>{{book.title}} &mdash; {{book.author_name|join(', ')}} ({{book.publish_year[0]}})</h1>
+    </div>
+  </header>
   <section class="row">
-    <div class="small-12 large-7 columns">
-      <h1>{{book.title}} &mdash; {{book.author_name}} ({{book.publish_year[0]}})</h1>
+    <div class="small-12 large-6 columns book-cover">
       <img src="http://covers.openlibrary.org/b/isbn/{{book.isbn[0]}}-L.jpg">
-      {{book}}
+    </div>
+    <div class="small-12 large-6 columns">
+      vdsvds
     </div>
   </section>
+    <section class="row">
+      <div class="small-12 large-7 columns">
+        <h2>Borrow this book</h2>
+        <p>This book is available to borrow as a hard copy from libraries and as an e-book as part of the national e-book collection.</p>
+        <h3>Hard copy</h3>
+        <p>The following nearby libraries have a copy of this book:</p>
+        <ul class="buttonlist">
+          {% for library in libraries_with_book %}
+            <li>
+              <a href="{{url_for('library', slug=library.slug)}}">{{library.name}}</a>
+              <a href="#" class="button small">Reserve</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <h3>e-books</h3>
+        <p>
+          This book is part of the national e-book collection. 
+        </p>
+        <a href="#" class="button expanded info">Borrow e-book</a>
+      </div>
+    </section>
 {% endblock %}

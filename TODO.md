@@ -1,16 +1,15 @@
 TODO:
 
+
 * add events
-* add staff pics / names
 * wiki sub-pages on library pages that anyone can edit
 * Show access to online courses
 * Start a reading group (conditional commitment)
-* Put on Heroku
-* page per book
-* add libraries from http://www.rotherham.gov.uk/homepage/18/find_your_local_
 * login with your library cardlibrary_and_customer_service_centre
 
 DONE:
+* Put on Heroku
+* page per book
 * add menu
 * add opening times
 * add photo
@@ -23,3 +22,4 @@ DONE:
 * Page per library
 * add accountability (council) to library page.
 * Put on Github
+* where to borrow books (e-book and physical) 
