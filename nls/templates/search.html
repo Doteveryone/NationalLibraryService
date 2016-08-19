@@ -12,6 +12,7 @@
           <li class="tabs-title is-active"><a href="#search_books" aria-selected="true">Books{% if results['books']%} ({{results['books']|length}}){% endif %}</a></li>
           <li class="tabs-title"><a href="#search_events">Events{% if results['events']%} ({{results['events']|length}}){% endif %}</a></li>
           <li class="tabs-title"><a href="#search_libraries">Libraries{% if results['books']%} ({{results['libraries']|length}}){% endif %}</a></li>
+          <li class="tabs-title"><a href="#search_archive">Archives{% if results['books']%} ({{results['archive']|length}}){% endif %}</a></li>
           <li class="tabs-title"><a href="#search_notices">Notices</a></li>
           <li class="tabs-title"><a href="#search_objects">Objects</a></li>
         </ul>
@@ -59,6 +60,21 @@
               <p>Sorry, no results were found</p>
             {% endif %}
           </div>
+
+          <div class="tabs-panel" id="search_archive">
+            {% if results['archive'] %}
+              <ol>
+                {% for result in results['archive'] %}
+                  <li>
+                    <a href="{{url_for('archive', film_id=result.film_id)}}">{{result.title}} &mdash; National Film Archive</a>
+                  </li>
+                {% endfor %}
+              </ol>
+            {% else %}
+              <p>Sorry, no results were found</p>
+            {% endif %}
+          </div>
+
         </div>
     </div>
   </section>

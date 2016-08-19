@@ -3716,6 +3716,8 @@ footer {
 
 ul.buttonlist .button {
   float: right; }
+ul.buttonlist span.label {
+  float: right; }
 ul.buttonlist li {
   clear: both; }
 
@@ -3727,5 +3729,9 @@ ul.buttonlist li {
   .book-cover img {
     height: 250px;
     margin: 1rem; }
+
+.label.success {
+  font-weight: bold;
+  color: #000; }
 
 /*# sourceMappingURL=main.css.map */

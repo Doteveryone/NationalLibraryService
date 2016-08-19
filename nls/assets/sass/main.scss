@@ -156,7 +156,10 @@ footer {
 }
 
 ul.buttonlist {
-  .button {
+  .button{
+    float:right;
+  }
+  span.label {
     float:right;
   }
   li {
@@ -174,4 +177,9 @@ ul.buttonlist {
     height:250px;
     margin:$global-margin;
   }
+}
+
+.label.success {
+  font-weight:bold;
+  color:#000;
 }

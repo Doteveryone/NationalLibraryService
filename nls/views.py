@@ -3,6 +3,38 @@ from nls import app, models, forms
 from mongoengine import DoesNotExist
 import openlibrary
 import random
+import requests
+import mechanize
+from bs4 import BeautifulSoup
+
+#very hacky film archive search
+def archive_search(search_term):
+
+    results = []
+
+    url = 'http://collections-search.bfi.org.uk/web/search/simple'
+
+    try:
+        br = mechanize.Browser()
+        br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
+
+        br.open(url)
+        br.form = list(br.forms())[0]
+        br.form["Fields[0].Value"] = search_term
+        response = br.submit()
+
+        soup = BeautifulSoup(response.read(), "html.parser")
+
+        for result in  soup.select('a.content.ais-float-dynamic'):
+            title = result.select('span')[0].text
+            link_split = result['href'].split('/')
+            film_id = link_split[len(link_split) - 1]
+            description = result.select('p')[0]
+            results.append({'title': title, 'description': description, 'film_id': film_id})
+    except:
+        pass
+
+    return results
 
 @app.route('/research')
 def research():
@@ -59,6 +91,14 @@ def library_events(slug):
         abort(404)
     return render_template('library_events.html', library=library, events=events, menu_item='events')
 
+@app.route('/libraries/<slug>/archive')
+def library_archive(slug):
+    try:
+        library = models.Library.objects.get(slug=slug)
+    except (DoesNotExist):
+        abort(404)
+    return render_template('library_archive.html', library=library, menu_item='archive')
+
 @app.route('/events/<id>')
 def event(id):
     try:
@@ -66,6 +106,44 @@ def event(id):
     except (DoesNotExist):
         abort(404)
     return render_template('event.html', event=event)
+
+@app.route('/archive/<film_id>')
+def archive(film_id):
+    base_url = 'http://collections-search.bfi.org.uk/web/Details/ChoiceFilmWorks/'
+    response = requests.get("%s/%s" % (base_url, film_id))
+    soup = BeautifulSoup(response.text, "html.parser")
+    details = soup.select('ul.content')[0]
+    keys = details.select('div.label')
+    values = details.select('div.value')
+
+    title = values[1].text
+    meta_data = []
+    index = 0
+    for value in values:
+        meta_data.append((keys[index].text, values[index].text))    
+        index += 1
+
+    #Get libraries it can be watched from (random 3 libraries)
+    libraries = models.Library.objects()
+    libraries_with_archive = [ libraries[i] for i in sorted(random.sample(xrange(len(libraries)), 3)) ]
+
+    #get some related books
+    title_split = title.split(' ')
+    books = []
+    if len(title_split) >= 3:
+        open_library = openlibrary.BookSearch()
+        all_books = open_library.get_by_title("%s %s %s" % (title_split[0], title_split[1], title_split[2]))
+
+        for i in range(0, 3):
+            print i
+            try:
+                books.append(all_books[i])
+            except:
+                pass
+
+
+    return render_template('archive.html', title=title, meta_data=meta_data, libraries_with_archive=libraries_with_archive, books=books)
+
 
 @app.route('/register')
 def register_index():
@@ -120,6 +198,10 @@ def search():
 
         #events
         results['events'] = models.Event.objects.search_text(query).order_by('$text_score')
+
+        #archive
+        results['archive'] = archive_search(query)
+        print results['archive']
 
     return render_template('search.html', query=query, results=results)
 

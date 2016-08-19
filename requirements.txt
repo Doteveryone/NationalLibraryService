@@ -1,3 +1,4 @@
+beautifulsoup4==4.5.1
 blinker==1.4
 click==6.6
 feedparser==5.2.1
@@ -11,6 +12,7 @@ humanize==0.5.1
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
+mechanize==0.2.5
 mongoengine==0.10.6
 openlibrary==0.0.1
 passlib==1.6.5

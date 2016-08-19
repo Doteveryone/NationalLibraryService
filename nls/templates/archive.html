@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Libraries{% endblock %}
+{% block content %}
+  <section class="row">
+    <div class="small-12 large-12 columns">
+      <h1>{{title}}</h1>
+    </div>
+  </section>
+  <section class="row">
+    <div class="small-12 large-8 columns">
+      <p>
+        This film is part of the BBC and BFI National Archive collection and is available to watch at some libraries. The nearest libraries you can watch this are:
+      </p>
+      <ul class="buttonlist">
+        {% for library in libraries_with_archive %}
+            <li>
+              <a href="{{url_for('library', slug=library.slug)}}">{{library.name}}</a>
+              <span class="label success">OPEN NOW</span>
+            </li>
+          {% endfor %}
+      </ul>
+      <h2>How to watch this film in the library</h2>
+      <ol>
+        <li>
+          To watch this film in a library, find a screen with this icon:  
+          <img src="{{url_for('static', filename='images/access.png')}}" width="30"/>
+        </li>
+        <li>
+          Then use the scanner to scan this barcode:
+          <br/>
+          <img src="{{url_for('static', filename='images/qr.png')}}">
+        </p>
+      </ol>
+    </div>
+    <div class="small-12 large-4 columns">
+      <h3>About this film</h3>
+      <dl>
+        {% for item in meta_data %}
+          <dt>{{item[0]}}</dt>
+          <dd>{{item[1]}}</dd>
+        {% endfor %}
+      </dl>
+      <h3>Related books</h3>
+      {% if books %}
+        <ul>
+          {% for book in books %}
+            <li>
+              <a href="{{url_for('book', isbn=book.isbn[0])}}">{{book.title}}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No related books were found</p>
+      {% endif %}
+
+    </div>
+  </section>
+{% endblock %}

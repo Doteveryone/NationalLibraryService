@@ -1,16 +1,17 @@
 TODO:
-
+* archives on library pages
+* add top books / recomendations tab to libraries
 * book a desk
 * book a study space
 * analytics on library pages
-* events on library pages
 * wiki sub-pages on library pages that anyone can edit
 * Show access to online courses
 * Start a reading group (conditional commitment)
 * login with your library cardlibrary_and_customer_service_centre
 
 DONE:
-
+* archives search
+* events on library pages
 * map should default to derbyshire
 * add events
 * Put on Heroku

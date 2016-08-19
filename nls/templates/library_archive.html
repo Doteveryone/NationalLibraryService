@@ -1,0 +1,26 @@
+{% extends "library_base.html" %}
+{% block title %}Libraries{% endblock %}
+{% block library_content %}
+  <section class="row">
+    <div class="small-12 large-7 columns">
+      <h2>Archives and resources at {{library.name}}</h2>
+      <h3>Archives</h3>
+      <p>The following archives are viewable on screens within the library:</p>
+      <ul>
+        <li><a href="#">BBC &amp; BFI Archive</a></li>
+        <li><a href="#">Welcome Collection &mdash; Archives and Manuscripts</a>
+</li>
+      </ul>
+      <p>
+        You can search on the screens directly where you see this icon:  
+          <img src="{{url_for('static', filename='images/access.png')}}" width="30"/>. Alternatively, you can <a href="{{url_for('index')}}">search</a> using your own device and then scan the barcode.
+      </p>
+      <h4>Learning resources</h4>
+      <p>The following online learning resources are available for free on screens in the library</p>
+      <ul>
+        <li><a href="#">Code Academy</a></li>
+        <li><a href="#">Udacity</a></li>
+      </ul>
+    </div>
+  </section>
+{% endblock %}

@@ -20,6 +20,7 @@
         <ul class="menu">
           <li{% if menu_item=='home'%} class="active"{% endif %}><a href="{{url_for('library', slug=library.slug)}}">Home</a></li>
           <li{% if menu_item=='events' %} class="active"{% endif %}><a href="{{url_for('library_events', slug=library.slug)}}">Events</a></li>
+          <li{% if menu_item=='archive' %} class="active"{% endif %}><a href="{{url_for('library_archive', slug=library.slug)}}">Archives &amp; resources</a></li>
         </ul>
       </nav>
     </div>
