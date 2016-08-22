@@ -91,6 +91,20 @@ def library_events(slug):
         abort(404)
     return render_template('library_events.html', library=library, events=events, menu_item='events')
 
+@app.route('/libraries/<slug>/pledge', methods=['GET', 'POST'])
+def library_pledge(slug):
+    form = forms.PledgeForm()
+    try:
+        library = models.Library.objects.get(slug=slug)
+    except (DoesNotExist):
+        abort(404)
+
+    done = False
+    if request.method == 'POST':
+        done = True
+
+    return render_template('library_pledge.html', library=library, menu_item='notices', form=form, done=done)
+
 @app.route('/libraries/<slug>/archive')
 def library_archive(slug):
     try:

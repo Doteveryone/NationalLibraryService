@@ -1,0 +1,29 @@
+{% from "_formhelpers.html" import render_field, render_checkbox %}
+{% extends "library_base.html" %}
+{% block title %}Libraries{% endblock %}
+{% block library_content %}
+  <section class="row">
+    <div class="small-12 large-7 columns">
+      {% if not done %}
+        <h2>I want to .... </h2>
+        <form action="" method="post">
+          {{ form.csrf_token }}
+          <div class="callout">
+            {{render_field(form.activity)}}
+            <p>
+              eg start a reading group, learn 3D printing, join a discussion group
+            </p>
+          </div>
+          {{render_field(form.name)}}
+          {{render_field(form.email)}}
+          {{render_checkbox(form.organise)}}
+          <button type="submit" class="button expanded">Next</button>
+        </form>
+      {% else %}
+        <h2>3 other people want to do that too!</h2>
+        <p>We'll let you know when there are 5 people and put you in touch with each other.</p>
+      {% endif %}
+
+    </div>
+  </section>
+{% endblock %}
