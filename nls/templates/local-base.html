@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />
+    <link href="{{url_for('static', filename='vendor/leaflet/leaflet.css')}}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/fontawesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/foundation/5.2.3/css/foundation.min.css" rel="stylesheet" />
+    <link href="{{url_for('static', filename='css/local.css')}}" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/foundation/5.2.3/js/foundation.min.js"></script>
+    <script src="{{url_for('static', filename='vendor/leaflet/leaflet.js')}}"></script>
+    <title>{% block title %}{% endblock %}</title>
+  {% block head %}
+  {% endblock %}
+</head>
+<body>
+   <div class="header service fixed">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <a href="/"><i class="fa fa-shield"></i>
+ Borchester City Council</a>
+            </h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="right">
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Notices</a></li>
+            <li><a href="#">Votes and debates</a></li>
+            <li><a href="#">Your councillors</a></li>
+            <li><a href="#">Buses and trams</a></li>
+            <li><a href="#">Data</a></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+    <div class="wrapper{% if fullscreen %} fullscreen{% endif %}">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="row">
+            <div class="small-12 columns">
+              {% for category, message in messages %}
+              <div data-alert class="alert-box {% if category == 'error'%}alert{% else %}{{ category }}{% endif %}">
+                  {{ message }}
+                  <a href="#" class="close">&times;</a>
+                </div>
+              {% endfor %}
+             </div>
+          </div>
+        {% endif %}
+      {% endwith %}
+      {% block content %}
+
+      {% endblock %}
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(document).foundation();
+      });
+    </script>
+</body>

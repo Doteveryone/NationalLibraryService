@@ -1,0 +1,56 @@
+{% from "_formhelpers.html" import render_field %}
+{% extends "library_base.html" %}
+{% block title %}Libraries{% endblock %}
+{% block library_content %}
+  <section class="row">
+    <div class="small-12 large-7 columns">
+      <button id="edit" class="button small success float-right">Edit this page</button>
+      <h2>Local community groups</h2>
+      <div id="editor">
+        <textarea style="height:400px">
+A list of lists to community groups near {{library.name}}.
+
+* Norton Park Forum
+* Waterloo Community Forum WaCoCo
+* Green Community Champions
+* Nurse Hill Email group
+* Neighbourhood Watch
+* Healthwatch
+* Cyclists action group
+* Rural Food Partnership
+* KOV Forum
+* Broad Junction Action Group
+        </textarea>
+        <button class="button expanded">Save changes</button>
+      </div>
+      <div id="content">
+        <p>A list of lists to community groups near {{library.name}}.</p>
+        <ul>
+          <li><a href="">Norton Park Forum</a></li>
+          <li><a href="">Waterloo Community Forum WaCoCo</a></li>
+          <li><a href="">Green Community Champions</a></li>
+          <li><a href="">Nurse Hill Email group</a></li>
+          <li><a href="">Neighbourhood Watch</a></li>
+          <li><a href="">Healthwatch</a></li>
+          <li><a href="">Cyclists action group</a></li>
+          <li><a href="">Rural Food Partnership</a></li>
+          <li><a href="">KOV Forum</a></li>
+          <li><a href="">Broad Junction Action Group</a></li>
+        </ul>
+      </div>
+      <hr>
+      <h3>Page history</h3>
+      <ol>
+        <li>Edited: 22 August 2016 (<a href="#">View changes</a>)</li>
+        <li>Created: 20 August 2016 (<a href="#">View changes</a>)</li>
+      </ol>
+    </div>
+  </section>
+  <script type="text/javascript">
+  $('#editor').hide();
+    $('#edit').click(function(){
+      $('#content').hide();
+      $('#editor').show();
+    });
+  </script>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "local-base.html" %}
+{% block title %}Culture Trail{% endblock %}
+{% block content %}
+  <div class="row">
+    <div id="news" class="small-12 columns">
+      <ul class="example-orbit" data-orbit>
+          <li>
+              <img src="{{url_for('static', filename="images/country.jpg")}}" alt="slide 2" />
+              <div class="orbit-caption">
+                  <a href="">Country Show dates announced</a>
+                  <span class="orbit-attribution">(cc) <a href="https://www.flickr.com/photos/katcha/9333479763"> Katie Sadler</a></span>
+              </div>
+          </li>
+          <li class="active">
+              <img src="{{url_for('static', filename="images/parking.jpg")}}" alt="slide 2" />
+              <div class="orbit-caption">
+                  <a href="">Local vote - new parking zones in operation</a>
+                  <span class="orbit-attribution">(cc) <a href="https://commons.wikimedia.org/wiki/File:Trafic_warden_camden.jpg">Salim Fadhley</a></span>
+              </div>
+          </li>
+          <li>
+              <img src="{{url_for('static', filename="images/tram.jpg")}}" alt="slide 2" />
+              <div class="orbit-caption">
+                  Tram extension - 200 job opportunities
+                  <span class="orbit-attribution">(cc) <a href="https://commons.wikimedia.org/wiki/File:Edinburgh_tram_at_Gogar_Tram_Depot.JPG?uselang=en-gb">Kim Traynor</a></span>
+              </div>
+          </li>
+          <li>
+                <img src="{{url_for('static', filename="images/townhall.jpg")}}" alt="slide 2" />
+              <div class="orbit-caption">
+                  <a href="{{url_for('local_culture_trail')}}">Follow the archive trail</a>
+                  <span class="orbit-attribution">(cc) <a href="https://commons.wikimedia.org/wiki/File:Hull%27s_Guildhall_-_geograph.org.uk_-_1758569.jpg">Andy Beecroft</a></span>
+              </div>
+          </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <h3>Popular services</h3>
+      <ul class="services small-block-grid-2">
+        <li>
+          <a href="#">
+            <i class="fa fa-car fa-2x"></i>
+            Get a parking permit
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-building fa-2x"></i>
+            Apply for planning permission
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-bullhorn fa-2x"></i>
+            Report noise
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-home fa-2x"></i>
+            Find housing
+          </a>
+        </li>
+      </ul>
+      <ul class="side-nav">
+        <li>
+          <a href="#">
+            Browse all services
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            Services near by
+          </a>
+        </li>
+      </ul>
+   </div>
+  </div>
+{% endblock %}

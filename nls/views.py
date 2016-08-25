@@ -91,6 +91,22 @@ def library_events(slug):
         abort(404)
     return render_template('library_events.html', library=library, events=events, menu_item='events')
 
+@app.route('/libraries/<slug>/pages')
+def library_pages(slug):
+    try:
+        library = models.Library.objects.get(slug=slug)
+    except (DoesNotExist):
+        abort(404)
+    return render_template('library_pages.html', library=library, menu_item='pages')
+
+@app.route('/libraries/<slug>/pages/community-groups')
+def library_page(slug):
+    try:
+        library = models.Library.objects.get(slug=slug)
+    except (DoesNotExist):
+        abort(404)
+    return render_template('library_page.html', library=library, menu_item='pages')
+
 @app.route('/libraries/<slug>/pledge', methods=['GET', 'POST'])
 def library_pledge(slug):
     form = forms.PledgeForm()
@@ -225,3 +241,11 @@ def analytics_collect():
     if request.method == 'POST':
         done = True
     return render_template('analytics-collect.html', done=done)    
+
+@app.route('/local')
+def local_index():
+    return render_template('local-index.html')
+
+@app.route('/local/culture-trail')
+def local_culture_trail():
+    return render_template('local-culture-trail.html')

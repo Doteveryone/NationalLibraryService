@@ -1,0 +1,27 @@
+{% from "_formhelpers.html" import render_field %}
+{% extends "library_base.html" %}
+{% block title %}Libraries{% endblock %}
+{% block library_content %}
+  <section class="row">
+    <div class="small-12 large-7 columns">
+      <h2>Community pages</h2>
+      <p>Anyone who is a member of the library can create and edit pages.</p>
+      <h2>Recently updated</h2>
+      <ul>
+        <li><a href="{{url_for('library_page', slug=library.slug)}}">Local community groups</a></li>
+        <li><a href="{{url_for('library_page', slug=library.slug)}}">September's top reads</a></li>
+        <li><a href="{{url_for('library_page', slug=library.slug)}}">Places to study</a></li>
+        <li><a href="{{url_for('library_page', slug=library.slug)}}">Town centre changes - links to consultations</a></li>
+        <li><a href="{{url_for('library_page', slug=library.slug)}}">Moved to the area - top tips</a></li>
+      </ul>
+      <h2>Top pages</h2>
+      <ul>
+        <li><a href="{{url_for('library_page', slug=library.slug)}}">Moved to the area - top tips</a></li>
+        <li><a href="{{url_for('library_page', slug=library.slug)}}">Book exchange</a></li>
+        <li><a href="{{url_for('library_page', slug=library.slug)}}">Local community groups</a></li>
+        <li><a href="{{url_for('library_page', slug=library.slug)}}">Job clubs</a></li>        
+      </ul>
+
+    </div>
+  </section>
+{% endblock %}

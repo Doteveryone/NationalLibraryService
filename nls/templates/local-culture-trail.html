@@ -1,0 +1,38 @@
+{% extends "local-base.html" %}
+{% block title %}Culture Trail{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="small-12 columns">
+      <h2>Culture trail 2016</h2>
+      <p>Walk the city and view documents and stories from out library archives.</p>
+    </div>
+  </div>
+  <div id="local_map" style="height:400px"></div>
+  <div class="row">
+    <div class="small-12 columns">
+      <h3>Nearby</h3>
+      <ul>
+        <li>Plans for the old city clock (500 m)</li>
+        <li>Parish book (1 mile)</li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var map = L.map('local_map', {zoomControl: false,
+    attributionControl: false, dragging: false, touchZoom: false, scrollWheelZoom: false, doubleClickZoom: false, boxZoom: false});
+    map.setView([53.48524,-2.3331118], 12);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoibWVtZXNwcmluZyIsImEiOiJjaXJkbjBiNWwwMDl6aWxsd2Q1aDUxaXFuIn0.TrZ_GEqA1Ib1FFiVa-xp4g'
+}).addTo(map);
+
+    L.marker([53.48524,-2.3331118]).addTo(map);
+    L.marker([53.49624,-2.3431218]).addTo(map);
+    L.marker([53.46624,-2.3431218]).addTo(map);
+    L.marker([53.46224,-2.3731218]).addTo(map);
+
+  </script>
+{% endblock %}
