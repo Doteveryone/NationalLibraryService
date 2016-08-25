@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Book a meeting room{% endblock %}
+{% block content %}
+  <header class="row">
+    <div class="columns small-12">
+      <h1>Book a meeting room in a library</h1>
+      <p>Search all the library study spaces near by.</p>
+    </div>
+  </header>
+  <div class="row">
+    <form method="get" action="{{url_for('search')}}" class="columns small-4">
+      <label for="postcode">Choose a date and time</label>
+      <div class="input-group">
+        <input name="q" id="q" type="date" class="input-group-field" value="" placeholder="eg tomorrow at 2pm"/>
+      </div>
+      <label for="postcode">Enter your postcode</label>
+      <div class="input-group">
+        <input name="q" id="q" type="text" class="input-group-field" value="" />
+      </div>
+      <button type="submit" class="button">Go</button>
+    </form>
+  </div>
+{% endblock %}

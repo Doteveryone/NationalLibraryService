@@ -1,0 +1,17 @@
+{% extends "local-base.html" %}
+{% block title %}Culture Trail{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="small-12 columns">
+      <form method="get" action="{{url_for('search')}}">
+        <label for="q">Search libraries in Borchester</label>
+        <div class="input-group">
+          <input name="q" id="q" type="text" class="input-group-field" value="{% if query %}{{query}}{% endif %}" placeholder="Books, libraries, events, training or postcode" />
+          <div class="input-group-button">
+            <button type="submit" class="button expand">Go</button>
+          </div>
+        </div>
+      </form>
+   </div>
+  </div>
+{% endblock %}

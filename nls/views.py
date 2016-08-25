@@ -48,6 +48,10 @@ def index():
 def space():
     return render_template('space.html')
 
+@app.route('/meeting')
+def meeting():
+    return render_template('meeting.html')
+
 @app.route('/books/<isbn>')
 def book(isbn):
     # open_library = openlibrary.BookSearch()
@@ -249,3 +253,7 @@ def local_index():
 @app.route('/local/culture-trail')
 def local_culture_trail():
     return render_template('local-culture-trail.html')
+
+@app.route('/local/search')
+def local_search():
+    return render_template('local-search.html')    
