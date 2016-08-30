@@ -256,4 +256,8 @@ def local_culture_trail():
 
 @app.route('/local/search')
 def local_search():
-    return render_template('local-search.html')    
+    return render_template('local-search.html')
+
+@app.route('/email-example')
+def email_example():
+    return render_template('email-example.html')        

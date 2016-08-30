@@ -3734,4 +3734,31 @@ ul.buttonlist li {
   font-weight: bold;
   color: #000; }
 
+#email {
+  margin-top: 1rem; }
+  #email .email-header {
+    text-align: center;
+    padding-bottom: 1rem; }
+    #email .email-header h1 {
+      font-size: 1.5em;
+      color: #3f7b90; }
+    #email .email-header img {
+      width: 70px;
+      padding-top: 1rem; }
+  #email .email-footer {
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem; }
+  #email .columns {
+    border: solid 1px #ccc;
+    min-height: 600px; }
+    #email .columns .panel {
+      border: solid 1px #ccc;
+      padding: 1rem;
+      margin-bottom: 1rem; }
+      #email .columns .panel h5 {
+        color: #3f7b90; }
+      #email .columns .panel small {
+        color: #808080; }
+
 /*# sourceMappingURL=main.css.map */

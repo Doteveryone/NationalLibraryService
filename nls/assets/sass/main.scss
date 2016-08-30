@@ -183,3 +183,40 @@ ul.buttonlist {
   font-weight:bold;
   color:#000;
 }
+
+#email {
+  
+  margin-top:$global-margin;
+  .email-header {
+    text-align:center;
+    padding-bottom:$global-padding;
+    h1 {
+      font-size:1.5em;
+      color:#3f7b90;
+    }
+    img {
+      width:70px;
+      padding-top:$global-padding;
+    }
+  }
+  .email-footer {
+    text-align:center;
+    padding-top:$global-padding;
+    padding-bottom:$global-padding;
+  }
+  .columns {
+    border:solid 1px #ccc;
+    min-height:600px;
+    .panel {
+      border:solid 1px #ccc;
+      padding:$global-padding;
+      margin-bottom: $global-margin;
+      h5{
+        color:#3f7b90;
+      }
+      small {
+        color:#808080;
+      }
+    }
+  }
+}

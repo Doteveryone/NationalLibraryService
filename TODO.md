@@ -1,12 +1,14 @@
 TODO:
 
-* book a desk
-* book a study space
+
 * local notices
-* borchester
+* local news service
 
 DONE:
 
+* borchester
+* book a desk
+* book a study space
 * add top books / recommendations to pages
 * Start a reading group (conditional commitment)
 * Show access to online courses
