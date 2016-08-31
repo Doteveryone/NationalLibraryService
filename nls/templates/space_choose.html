@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Book a space{% endblock %}
+{% block content %}
+  <header class="row">
+    <div class="columns small-12">
+      <h1>Book a study space in a library</h1>
+      <p>Select the desk you want to book by clicking on it</p>
+    </div>
+  </header>
+  <div class="row">
+    <div class="columns small-12">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 1190.6 841.9" style="enable-background:new 0 0 1190.6 841.9;" xml:space="preserve">
+      <style type="text/css">
+        .st0{fill:#ffffff;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+        .st1{
+          fill:#CCCCCC;
+          cursor:pointer;
+        }
+        .st2{fill:#FFFFFF;}
+        .st3{font-family:'Helvetica-Bold';}
+        .st4{font-size:12px;}
+      </style>
+      <rect x="79.3" y="171.3" class="st0" width="156.3" height="72.3"/>
+      <rect x="274.9" y="171.3" class="st0" width="156.3" height="72.3"/>
+      <rect x="470.4" y="171.3" class="st0" width="156.3" height="72.3"/>
+      <rect x="79.3" y="326.6" class="st0" width="156.3" height="72.3"/>
+      <rect x="274.9" y="326.6" class="st0" width="156.3" height="72.3"/>
+      <rect x="470.4" y="326.6" class="st0" width="156.3" height="72.3"/>
+      <rect x="79.3" y="482" class="st0" width="156.3" height="72.3"/>
+      <rect x="274.9" y="482" class="st0" width="156.3" height="72.3"/>
+      <rect x="470.4" y="482" class="st0" width="156.3" height="72.3"/>
+      <rect x="369.3" y="690.7" class="st0" width="156.3" height="72.3"/>
+      <rect x="564.9" y="690.7" class="st0" width="156.3" height="72.3"/>
+      <rect x="760.4" y="690.7" class="st0" width="156.3" height="72.3"/>
+      <rect x="955.8" y="690.7" class="st0" width="156.3" height="72.3"/>
+      <rect x="1039.2" y="469" class="st0" width="72.3" height="156.3"/>
+      <rect x="1039.2" y="273.4" class="st0" width="72.3" height="156.3"/>
+      <rect x="1039.2" y="78" class="st0" width="72.3" height="156.3"/>
+      <rect x="696" y="148" class="st1" width="46" height="196.3"/>
+      <rect x="696" y="380" class="st1" width="46" height="196.3"/>
+      <rect x="314.2" y="63.8" class="st1" width="196.3" height="46"/>
+      <rect x="546.2" y="63.8" class="st1" width="196.3" height="46"/>
+      <rect x="80" y="65.8" class="st1" width="196.3" height="46"/>
+      <rect x="76.3" y="598.5" class="st1" width="196.3" height="165.4"/>
+      <text transform="matrix(1 0 0 1 132.6109 680)" class="st2 st3 st4">INFORMATION</text>
+      <text transform="matrix(4.489659e-11 -1 1 4.489659e-11 723.8867 498.7285)" class="st2 st3 st4">BOOKS</text>
+      <text transform="matrix(4.489659e-11 -1 1 4.489659e-11 723.8867 269.8809)" class="st2 st3 st4">BOOKS</text>
+      <text transform="matrix(1 0 0 1 597.9445 92.8199)" class="st2 st3 st4">PERIODICALS</text>
+      <text transform="matrix(1 0 0 1 366.9445 92.8199)" class="st2 st3 st4">PERIODICALS</text>
+      <text transform="matrix(1 0 0 1 128.9445 92.8199)" class="st2 st3 st4">PERIODICALS</text>
+      </svg>
+        <p>
+          <a href="{{url_for('space_confirmed')}}" class="button">Confirm booking</a>
+        </p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $('.st0').click(function(){
+      $('.st0').css('fill', '#ffffff');
+      $(this).css('fill', '#97363a');
+    });
+  </script>
+{% endblock %}

@@ -1,11 +1,10 @@
 TODO:
 
 
-* local notices
-* local news service
-
 DONE:
 
+* local notices
+* local news service
 * borchester
 * book a desk
 * book a study space

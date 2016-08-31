@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Book a space{% endblock %}
+{% block content %}
+  <header class="row">
+    <div class="columns small-12">
+      <h1>Book a study space in a library</h1>
+      <p>The following libraries have space available</p>
+    </div>
+  </header>
+  <div class="row">
+    <div class="columns small-12">
+      <ul>
+        {% for library in libraries %}
+          <li>
+            <a href="{{url_for('space_choose')}}">{{library.name}}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

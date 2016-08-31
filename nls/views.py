@@ -44,9 +44,27 @@ def research():
 def index():
     return render_template('index.html')
 
-@app.route('/space')
+@app.route('/space', methods=['GET', 'POST'])
 def space():
+    if request.method == 'POST':
+        return redirect(url_for('space_library'))
     return render_template('space.html')
+
+@app.route('/space/library')
+def space_library():
+    #Get libraries it can be borrowed from (random 3 libraries)
+    libraries = models.Library.objects()
+    libraries = [ libraries[i] for i in sorted(random.sample(xrange(len(libraries)), 3)) ]
+
+    return render_template('space_library.html', libraries=libraries)
+
+@app.route('/space/choose')
+def space_choose():
+    return render_template('space_choose.html')
+
+@app.route('/space/confirmed')
+def space_confirmed():
+    return render_template('space_confirmed.html')
 
 @app.route('/meeting')
 def meeting():

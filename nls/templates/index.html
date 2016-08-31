@@ -9,10 +9,10 @@
       {% include '_search_form.html' %}
       <ul>
         <li><a href="{{url_for('ask')}}">Ask a librarian</a></li>
-        <li><a href="#">Sign up to your local library news service</a></li>
-        <li><a href="#">Find study space</a></li>
-        <li><a href="#">Start a reading group</a></li>
-        <li><a href="#">Book a space for your community meeting</a></li>
+        <li><a href="{{url_for('email_example')}}">Sign up to your local library news service</a></li>
+        <li><a href="{{url_for('space')}}">Book study space</a></li>
+        <li><a href="{{url_for('reading_group_start')}}">Start a reading group</a></li>
+        <li><a href="{{url_for('meeting')}}">Book a space for your community meeting</a></li>
         <li><a href="#">Add information to your local noticeboard</a></li>
       </ul>
     </div>
