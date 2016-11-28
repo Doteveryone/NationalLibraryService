@@ -159,6 +159,10 @@ def event(id):
         abort(404)
     return render_template('event.html', event=event)
 
+@app.route('/notices')
+def notices():
+    return render_template('notices.html')
+
 @app.route('/archive/<film_id>')
 def archive(film_id):
     base_url = 'http://collections-search.bfi.org.uk/web/Details/ChoiceFilmWorks/'
