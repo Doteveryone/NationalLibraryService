@@ -213,10 +213,22 @@ ul.buttonlist {
       margin-bottom: $global-margin;
       h5{
         color:#3f7b90;
+        
       }
       small {
         color:#808080;
       }
     }
   }
+}
+
+code {
+  display: block;
+  background:$dark-gray;
+  border:none;
+  margin-top:$global-margin;
+  margin-bottom:$global-margin;
+  color:$white;
+  text-align:center;
+  font-size:150%;
 }

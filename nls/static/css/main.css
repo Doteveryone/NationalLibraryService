@@ -3761,4 +3761,14 @@ ul.buttonlist li {
       #email .columns .panel small {
         color: #808080; }
 
+code {
+  display: block;
+  background: #454a4c;
+  border: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #fefefe;
+  text-align: center;
+  font-size: 150%; }
+
 /*# sourceMappingURL=main.css.map */
