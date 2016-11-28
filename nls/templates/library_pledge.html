@@ -5,13 +5,13 @@
   <section class="row">
     <div class="small-12 large-7 columns">
       {% if not done %}
-        <h2>I want to .... </h2>
+        <h2>Start a new learning group at {{library.name}}</h2>
         <form action="" method="post">
           {{ form.csrf_token }}
           <div class="callout">
             {{render_field(form.activity)}}
             <p>
-              eg start a reading group, learn 3D printing, join a discussion group
+              eg reading group, learn 3D printing, join a discussion group, digital skills
             </p>
           </div>
           {{render_field(form.name)}}
