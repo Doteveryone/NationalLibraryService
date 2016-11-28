@@ -4,22 +4,29 @@
   <header class="row">
     <div class="columns small-12">
       <h1>Suggest and item for the newsletter</h1>
-      <p></p>
     </div>
   </header>
   <div class="row">
-    <form method="post" action="" class="columns large-4">
-      <label>Title</label>
-      <div class="input-group">
-        <input name="q" id="q" type="date" class="input-group-field" value=""/>
-      </div>
-      <label>Link</label>
-      <div class="input-group">
-        <input name="q" id="q" type="text" class="input-group-field" value="" />
-      </div>
-      <label>Details</label>
-      <textarea></textarea>
-      <button type="submit" class="button expanded">Next</button>
-    </form>
+   {% if done %}
+    <div class="columns large-4">
+      <p>
+        Thank you. Your post will be checked by a member of library staff.
+      </p>
+    </div>
+   {% else %}
+      <form method="post" action="" class="columns large-4">
+        <label>Title</label>
+        <div class="input-group">
+          <input name="q" id="q" type="date" class="input-group-field" value=""/>
+        </div>
+        <label>Link</label>
+        <div class="input-group">
+          <input name="q" id="q" type="text" class="input-group-field" value="" />
+        </div>
+        <label>Details</label>
+        <textarea></textarea>
+        <button type="submit" class="button expanded">Next</button>
+      </form>
+    {% endif %}
   </div>
 {% endblock %}

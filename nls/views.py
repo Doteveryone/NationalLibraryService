@@ -159,9 +159,12 @@ def event(id):
         abort(404)
     return render_template('event.html', event=event)
 
-@app.route('/notices')
+@app.route('/notices', methods=['GET', 'POST'])
 def notices():
-    return render_template('notices.html')
+    done = False
+    if request.method == 'POST':
+        done = True
+    return render_template('notices.html', done=done)
 
 @app.route('/archive/<film_id>')
 def archive(film_id):
