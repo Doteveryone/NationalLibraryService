@@ -5,10 +5,11 @@
     <div class="columns small-12">
       <h1>Book a study space in a library</h1>
       <p>Search all the library study spaces near by.</p>
+      <p><a href="{{url_for('meeting')}}">You can also book a room for a community meeting</a></p>
     </div>
   </header>
   <div class="row">
-    <form method="post" action="" class="columns small-4">
+    <form method="post" action="" class="columns large-4">
       <label for="postcode">Choose a date and time</label>
       <div class="input-group">
         <input name="q" id="q" type="date" class="input-group-field" value="" placeholder="eg tomorrow at 2pm"/>
@@ -24,6 +25,5 @@
       </fieldset>
       <button type="submit" class="button">Go</button>
     </form>
-    <p><a href="{{url_for('meeting')}}">You can also book a room for a community meeting</a></p>
   </div>
 {% endblock %}
