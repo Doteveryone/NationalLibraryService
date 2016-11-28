@@ -10,22 +10,22 @@
         <textarea style="height:400px">
 A list of lists to community groups near {{library.name}}.
 
-* Norton Park Forum
-* Waterloo Community Forum WaCoCo
-* Green Community Champions
-* Nurse Hill Email group
-* Neighbourhood Watch
-* Healthwatch
-* Cyclists action group
+* [Norton Park Forum](http://nortonparkforum.org.uk)
+* [Waterloo Community Forum WaCoCo](http://waterloowacoco.uk.com)
+* [Green Community Champions](http://wearegreenchamps.net)
+* [Nurse Hill Email group](https://groups.google.com/4535jthuigr8)
+* http://facebook.com/groups/468754689Neighbourhood Watch
+* [Healthwatch](http://hgchelthwatch.org.uk)
+* [Hay Cyclists action group](http://haycyclistsgroup.org.uk)
 * Rural Food Partnership
-* KOV Forum
-* Broad Junction Action Group
+* [KOV Forum](https://facebook.com/groups/6f78dshkjerwrhweuk)
+* [Broad Junction Action Group]((https://facebook.com/groups/786fhjr43))
         </textarea>
-        <button class="button expanded">Save changes</button>
+        <button id="save" class="button expanded">Save changes</button>
       </div>
       <div id="content">
         <p>A list of lists to community groups near {{library.name}}.</p>
-        <ul>
+        <ul id="list">
           <li><a href="">Norton Park Forum</a></li>
           <li><a href="">Waterloo Community Forum WaCoCo</a></li>
           <li><a href="">Green Community Champions</a></li>
@@ -51,6 +51,11 @@ A list of lists to community groups near {{library.name}}.
     $('#edit').click(function(){
       $('#content').hide();
       $('#editor').show();
+      $('#save').click(function(){
+          $('#list').append($('<li><a href="#">Reuse and recycle</a></li>'))
+          $('#content').show();
+          $('#editor').hide();
+      });
     });
   </script>
 {% endblock %}
