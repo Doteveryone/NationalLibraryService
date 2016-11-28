@@ -253,13 +253,16 @@ def search():
         results['libraries'] = models.Library.objects.search_text(query).order_by('$text_score')
 
         #books
+        query = "violin beginners"
         open_library = openlibrary.BookSearch()
         results['books'] = open_library.get_by_title(query)
 
         #events
+        query = "music"
         results['events'] = models.Event.objects.search_text(query).order_by('$text_score')
 
         #archive
+        query = "violin"
         results['archive'] = archive_search(query)
         print results['archive']
 

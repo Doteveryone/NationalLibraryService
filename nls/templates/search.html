@@ -17,8 +17,8 @@
           <li class="tabs-title"><a href="#search_events">Events{% if results['events']%} ({{results['events']|length}}){% endif %}</a></li>
           <li class="tabs-title"><a href="#search_libraries">Libraries{% if results['books']%} ({{results['libraries']|length}}){% endif %}</a></li>
           <li class="tabs-title"><a href="#search_archive">Archives{% if results['books']%} ({{results['archive']|length}}){% endif %}</a></li>
-          <li class="tabs-title"><a href="#search_notices">Notices</a></li>
-          <li class="tabs-title"><a href="#search_objects">Objects</a></li>
+<!--           <li class="tabs-title"><a href="#search_notices">Notices</a></li> -->
+          <li class="tabs-title"><a href="#search_objects">Objects (3)</a></li>
         </ul>
         <div class="tabs-content" data-tabs-content="search_tabs">
           <div class="tabs-panel  is-active" id="search_books">
@@ -63,6 +63,20 @@
             {% else %}
               <p>Sorry, no results were found</p>
             {% endif %}
+          </div>
+
+          <div class="tabs-panel" id="search_objects">
+            <ol>
+              <li>
+                <a href="#">Violin (borrow for 6 weeks) &mdash; Clay Cross Library</a>
+              </li>
+              <li>
+                <a href="#">Violin (borrow for 3 weeks)  &mdash;  Buxton Library</a>
+              </li>
+              <li>
+                <a href="#">Viola (borrow for 12 weeks) &mdash; Buxton Library</a>
+              </li>              
+            </ol>
           </div>
 
           <div class="tabs-panel" id="search_archive">
