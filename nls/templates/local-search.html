@@ -4,6 +4,8 @@
   <div class="row">
     <div class="small-12 columns">
       <form method="get" action="{{url_for('search')}}">
+
+        <input type="hidden" name="local" value="1">
         <label for="q">Search libraries in Borchester</label>
         <div class="input-group">
           <input name="q" id="q" type="text" class="input-group-field" value="{% if query %}{{query}}{% endif %}" placeholder="Books, libraries, events, training or postcode" />

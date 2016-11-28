@@ -6,7 +6,11 @@
       {% include '_search_form.html' %}
       <div id="search_map" class="map"></div>
       {% if query %}
-        <h2>Results for <em>{{query}}</em></h2>
+        {% if not local == False %}
+          <h2>Results for <em>{{query}}</em> from Borchester Libraries</h2>
+        {% else %}
+          <h2>Results for <em>{{query}}</em></h2>
+        {% endif  %}
       {% endif %}
         <ul class="tabs" data-tabs id="search_tabs">
           <li class="tabs-title is-active"><a href="#search_books" aria-selected="true">Books{% if results['books']%} ({{results['books']|length}}){% endif %}</a></li>

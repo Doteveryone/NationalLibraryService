@@ -213,7 +213,7 @@ ul.buttonlist {
       margin-bottom: $global-margin;
       h5{
         color:#3f7b90;
-        
+
       }
       small {
         color:#808080;
@@ -231,4 +231,9 @@ code {
   color:$white;
   text-align:center;
   font-size:150%;
+}
+
+.tabs-title > a[aria-selected='true'] {
+  background:$primary-color;
+  color:#ffffff;
 }

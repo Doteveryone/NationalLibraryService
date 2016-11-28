@@ -3771,4 +3771,8 @@ code {
   text-align: center;
   font-size: 150%; }
 
+.tabs-title > a[aria-selected='true'] {
+  background: #4A91A9;
+  color: #ffffff; }
+
 /*# sourceMappingURL=main.css.map */

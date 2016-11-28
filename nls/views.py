@@ -236,6 +236,7 @@ def reading_group_start():
 @app.route('/search')
 def search():
     query = request.args.get('q', False)
+    local = request.args.get('local', False)
     results = {}
     if query == '':
         query = False
@@ -255,7 +256,7 @@ def search():
         results['archive'] = archive_search(query)
         print results['archive']
 
-    return render_template('search.html', query=query, results=results)
+    return render_template('search.html', query=query, local=local,  results=results)
 
 @app.route('/analytics/collect', methods=['GET', 'POST'])
 def analytics_collect():
