@@ -259,7 +259,7 @@ def search():
 
         #events
         query = "music"
-        results['events'] = models.Event.objects.search_text(query).order_by('$text_score')
+        results['events'] = models.Event.objects.search_text(query).order_by('$text_score')[0:4]
 
         #archive
         query = "violin"
