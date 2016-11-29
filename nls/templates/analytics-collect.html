@@ -3,6 +3,7 @@
 <head>
   <title>What did you do in the library today?</title>
     <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />
     <link href="{{url_for('static', filename='vendor/leaflet/leaflet.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{url_for('static', filename='vendor/chatjs/css/jquery.chatjs.css')}}" />
@@ -13,6 +14,11 @@
 
     <script src="{{url_for('static', filename='javascript/main.js')}}"></script>
     <title>{% block title %}{% endblock %}</title>
+    <style type="text/css">
+      body {
+        background-color:#fff5d1;
+      }
+    </style>
 </head>
 <body class="analytics-collection">
   {% if done == False %}
